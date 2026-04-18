@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Global Atlas — 寰宇图志</title>
+<meta name="description" content="A bilingual comparative atlas of the United States, European Union, China, ASEAN, Brazil, Russia, India, and Africa — across economy, administration, politics, technology, lifestyle, consumption, and purchasing power." />
+<meta property="og:title" content="Global Atlas — 寰宇图志" />
+<meta property="og:description" content="Eight entities · seven dimensions · one bilingual atlas." />
+<meta property="og:type" content="website" />
+<script defer src="https://analytics-dashboard-two-blue.vercel.app/tracker.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=Noto+Serif+SC:wght@300;400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --ink: #0f1821;
+  --paper: #f2ecdc;
+  --paper-2: #ebe3cf;
+  --paper-3: #dcd0b2;
+  --rouge: #a8322c;
+  --rouge-deep: #7c1f1a;
+  --gold: #b5893c;
+  --gold-soft: #d8b061;
+  --sage: #4f5d43;
+  --stone: #3a3530;
+  --line: rgba(15, 24, 33, 0.2);
+  --serif: "Fraunces", "Noto Serif SC", serif;
+  --cjk-serif: "Noto Serif SC", "Fraunces", serif;
+  --sans: "Noto Sans SC", "Fraunces", sans-serif;
+  --mono: "JetBrains Mono", monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-feature-settings: "ss01", "ss02", "ss05";
+  overflow-x: hidden;
+  line-height: 1.5;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(181, 137, 60, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(168, 50, 44, 0.06), transparent 50%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.06  0 0 0 0 0.09  0 0 0 0 0.13  0 0 0 0.035 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ——— TOP BAR ——— */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 40px;
+  background: rgba(242, 236, 220, 0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex; align-items: baseline; gap: 14px;
+  font-family: var(--serif); font-weight: 900;
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.02em;
+}
+.brand .glyph {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--ink); color: var(--paper);
+  font-size: 14px; font-style: italic;
+  transform: translateY(2px);
+}
+.brand .en { font-size: 20px; }
+.brand .cn { font-family: var(--cjk-serif); font-size: 18px; opacity: 0.7; }
+.topbar nav { display: flex; gap: 28px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--sans); font-weight: 500; }
+.topbar nav a { color: var(--ink); text-decoration: none; opacity: 0.65; transition: opacity 0.2s; }
+.topbar nav a:hover { opacity: 1; }
+.lang-toggle {
+  display: flex; gap: 2px; border: 1px solid var(--ink);
+  border-radius: 100px; overflow: hidden; font-family: var(--mono); font-size: 11px;
+}
+.lang-toggle button {
+  background: transparent; border: none; padding: 6px 14px; cursor: pointer;
+  color: var(--ink); font-family: inherit; letter-spacing: 0.1em;
+  transition: all 0.25s;
+}
+.lang-toggle button.active { background: var(--ink); color: var(--paper); }
+
+/* ——— HERO ——— */
+.hero {
+  min-height: 100vh;
+  padding: 140px 40px 80px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(120deg, transparent 40%, rgba(168, 50, 44, 0.04) 60%, transparent 80%),
+    repeating-linear-gradient(0deg, transparent 0, transparent 39px, rgba(15, 24, 33, 0.04) 39px, rgba(15, 24, 33, 0.04) 40px);
+  pointer-events: none;
+}
+.hero-left { position: relative; z-index: 2; }
+.eyebrow {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--rouge);
+  margin-bottom: 28px; display: flex; align-items: center; gap: 14px;
+}
+.eyebrow::before { content: ""; width: 40px; height: 1px; background: var(--rouge); }
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(56px, 8vw, 128px);
+  font-weight: 300;
+  font-variation-settings: "opsz" 144, "SOFT" 0;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  margin-bottom: 12px;
+}
+.hero h1 .emph {
+  font-style: italic; font-weight: 500;
+  color: var(--rouge);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.hero h1 .cn-title {
+  font-family: var(--cjk-serif); font-weight: 900;
+  font-size: 0.55em; letter-spacing: 0.12em;
+  display: block; margin-top: 12px; color: var(--ink);
+  opacity: 0.85;
+}
+.hero-meta {
+  display: flex; gap: 40px; margin-top: 48px;
+  font-family: var(--mono); font-size: 12px;
+  color: var(--stone); letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.hero-meta > div { border-top: 1px solid var(--ink); padding-top: 10px; }
+.hero-meta b { display: block; font-size: 16px; font-family: var(--serif); text-transform: none; letter-spacing: 0; margin-top: 4px; color: var(--ink); }
+
+.hero-lede {
+  font-size: 18px; max-width: 500px; margin-top: 48px; line-height: 1.65;
+  color: var(--stone);
+  font-style: italic;
+}
+[data-lang="zh"] .hero-lede { font-family: var(--cjk-serif); font-style: normal; line-height: 1.9; }
+
+.hero-right {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.compass {
+  width: 100%; aspect-ratio: 1;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.compass svg { width: 100%; height: 100%; }
+.compass-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  text-align: center;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* ——— SECTION GENERIC ——— */
+section { padding: 120px 40px; position: relative; }
+.section-head {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 40px;
+  align-items: end; margin-bottom: 72px; padding-bottom: 24px;
+  border-bottom: 1px solid var(--ink);
+}
+.section-num {
+  font-family: var(--mono); font-size: 14px; color: var(--rouge);
+  letter-spacing: 0.1em;
+}
+.section-title {
+  font-family: var(--serif); font-size: clamp(40px, 5vw, 76px);
+  font-weight: 400; line-height: 0.95; letter-spacing: -0.025em;
+}
+.section-title .sub {
+  display: block; font-family: var(--cjk-serif); font-size: 0.4em;
+  font-weight: 400; letter-spacing: 0.1em;
+  margin-top: 8px; color: var(--stone);
+}
+.section-info {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--stone); text-align: right;
+}
+
+/* ——— ENTITIES GRID ——— */
+.entities {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.entity {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 32px 28px 28px;
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s ease;
+  cursor: pointer;
+  min-height: 360px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.entity:hover { background: var(--paper-2); }
+.entity::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), var(--accent, transparent) 0%, transparent 50%);
+  opacity: 0; transition: opacity 0.4s;
+  pointer-events: none; mix-blend-mode: multiply;
+}
+.entity:hover::after { opacity: 0.18; }
+.entity-head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.entity-id {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--stone); letter-spacing: 0.15em;
+}
+.entity-flag {
+  width: 44px; height: 28px; border: 1px solid var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.entity-name {
+  font-family: var(--serif); font-weight: 500;
+  font-size: 34px; line-height: 1; letter-spacing: -0.02em;
+  margin-top: 24px;
+  font-variation-settings: "opsz" 144;
+}
+.entity-name-cn {
+  font-family: var(--cjk-serif); font-weight: 500;
+  font-size: 20px; margin-top: 6px; color: var(--stone);
+  letter-spacing: 0.1em;
+}
+.entity-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px;
+  margin-top: 24px;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.05em;
+}
+.entity-stats .stat-label {
+  color: var(--stone); text-transform: uppercase;
+  font-size: 9px; letter-spacing: 0.15em;
+  margin-bottom: 2px;
+}
+.entity-stats .stat-val {
+  font-family: var(--serif); font-size: 20px;
+  font-weight: 500; letter-spacing: -0.01em;
+}
+.entity-rule {
+  height: 1px; background: var(--line); margin: 20px 0 16px;
+}
+.entity-meta {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--stone); letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex; justify-content: space-between;
+}
+
+/* Entity-specific color accents */
+.entity[data-code="US"] { --accent: #3c5688; }
+.entity[data-code="EU"] { --accent: #1b3a7a; }
+.entity[data-code="CN"] { --accent: #a8322c; }
+.entity[data-code="ASEAN"] { --accent: #2a7a5c; }
+.entity[data-code="BR"] { --accent: #1c8651; }
+.entity[data-code="RU"] { --accent: #8c2727; }
+.entity[data-code="IN"] { --accent: #c47a1f; }
+.entity[data-code="AF"] { --accent: #8a6d2c; }
+
+/* ——— DIMENSIONS ——— */
+.dimensions-section { background: var(--ink); color: var(--paper); }
+.dimensions-section .section-head { border-color: var(--paper); }
+.dimensions-section .section-title { color: var(--paper); }
+.dimensions-section .section-title .sub { color: rgba(242, 236, 220, 0.5); }
+.dimensions-section .section-num { color: var(--gold-soft); }
+.dimensions-section .section-info { color: rgba(242, 236, 220, 0.6); }
+
+.dim-tabs {
+  display: flex; gap: 0; margin-bottom: 48px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(242, 236, 220, 0.2);
+  border-bottom: 1px solid rgba(242, 236, 220, 0.2);
+}
+.dim-tab {
+  flex: 1; min-width: 140px;
+  background: transparent; border: none; color: var(--paper);
+  padding: 20px 16px; cursor: pointer;
+  font-family: var(--serif); font-size: 16px;
+  text-align: left; position: relative;
+  border-right: 1px solid rgba(242, 236, 220, 0.15);
+  transition: background 0.3s;
+}
+.dim-tab:last-child { border-right: none; }
+.dim-tab:hover { background: rgba(242, 236, 220, 0.05); }
+.dim-tab.active { background: var(--paper); color: var(--ink); }
+.dim-tab .num {
+  font-family: var(--mono); font-size: 10px;
+  display: block; opacity: 0.6; margin-bottom: 6px;
+  letter-spacing: 0.1em;
+}
+.dim-tab .label-cn {
+  font-family: var(--cjk-serif); font-size: 13px;
+  display: block; opacity: 0.7; margin-top: 2px;
+}
+
+.dim-panel { display: none; }
+.dim-panel.active { display: block; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dim-intro {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  margin-bottom: 56px;
+}
+.dim-intro h3 {
+  font-family: var(--serif); font-size: 44px; font-weight: 300;
+  font-style: italic; line-height: 1.05; letter-spacing: -0.02em;
+  color: var(--gold-soft);
+}
+.dim-intro p { font-size: 16px; line-height: 1.75; color: rgba(242, 236, 220, 0.85); max-width: 520px; }
+[data-lang="zh"] .dim-intro p { font-family: var(--cjk-serif); line-height: 2; }
+
+.dim-chart {
+  display: grid; grid-template-columns: 180px 1fr 120px;
+  gap: 24px; align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(242, 236, 220, 0.15);
+  transition: background 0.3s;
+}
+.dim-chart:hover { background: rgba(242, 236, 220, 0.03); }
+.dim-chart-name {
+  font-family: var(--serif); font-size: 18px;
+  display: flex; align-items: center; gap: 10px;
+}
+.dim-chart-name .dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--accent, var(--gold-soft));
+}
+.dim-chart-bar {
+  height: 4px; background: rgba(242, 236, 220, 0.12);
+  position: relative;
+}
+.dim-chart-bar-fill {
+  position: absolute; top: 0; left: 0; bottom: 0;
+  background: var(--accent, var(--gold-soft));
+  transition: width 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.dim-chart-value {
+  font-family: var(--mono); font-size: 13px; text-align: right;
+  color: var(--gold-soft);
+}
+
+/* ——— MATRIX TABLE ——— */
+.matrix {
+  overflow-x: auto;
+  margin-top: 56px;
+  border: 1px solid var(--line);
+}
+.matrix table { width: 100%; border-collapse: collapse; background: var(--paper); }
+.matrix th, .matrix td {
+  padding: 16px 14px; text-align: left;
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  font-size: 13px; vertical-align: top;
+}
+.matrix th {
+  background: var(--ink); color: var(--paper);
+  font-family: var(--mono); font-weight: 500;
+  font-size: 11px; letter-spacing: 0.15em;
+  text-transform: uppercase; position: sticky; top: 0;
+}
+.matrix th .th-cn { display: block; font-family: var(--cjk-serif); font-size: 11px; opacity: 0.6; margin-top: 2px; letter-spacing: 0.1em; text-transform: none; }
+.matrix td:first-child {
+  font-family: var(--serif); font-size: 18px; font-weight: 500;
+  background: var(--paper-2);
+}
+.matrix td:first-child .cn { display: block; font-family: var(--cjk-serif); font-size: 12px; opacity: 0.7; margin-top: 2px; font-weight: 400; }
+
+/* ——— QUOTE PULL ——— */
+.pullquote {
+  padding: 140px 40px;
+  text-align: center;
+  background: var(--paper-2);
+  position: relative;
+}
+.pullquote::before, .pullquote::after {
+  content: ""; position: absolute; left: 10%; right: 10%; height: 1px;
+  background: var(--ink);
+}
+.pullquote::before { top: 40px; }
+.pullquote::after { bottom: 40px; }
+.pullquote q {
+  font-family: var(--serif); font-size: clamp(32px, 4.5vw, 64px);
+  font-weight: 300; font-style: italic; line-height: 1.2;
+  letter-spacing: -0.02em;
+  max-width: 960px; display: inline-block;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.pullquote q::before { content: "“"; color: var(--rouge); font-size: 1.6em; line-height: 0; vertical-align: -0.3em; margin-right: 0.1em; }
+.pullquote q::after { content: "”"; color: var(--rouge); font-size: 1.6em; line-height: 0; vertical-align: -0.3em; margin-left: 0.1em; }
+.pullquote cite {
+  display: block; margin-top: 32px;
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  font-style: normal; color: var(--stone);
+}
+[data-lang="zh"] .pullquote q { font-family: var(--cjk-serif); font-style: normal; }
+
+/* ——— METHODOLOGY ——— */
+.methodology {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 48px;
+}
+.method-card {
+  background: var(--paper);
+  padding: 32px 28px;
+}
+.method-card .num {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--rouge); letter-spacing: 0.2em;
+  margin-bottom: 12px;
+}
+.method-card h4 {
+  font-family: var(--serif); font-size: 22px; font-weight: 500;
+  margin-bottom: 10px; letter-spacing: -0.01em;
+}
+.method-card h4 .cn {
+  display: block; font-family: var(--cjk-serif); font-size: 13px;
+  color: var(--stone); margin-top: 4px; letter-spacing: 0.1em;
+}
+.method-card p {
+  font-size: 14px; line-height: 1.65; color: var(--stone);
+}
+[data-lang="zh"] .method-card p { font-family: var(--cjk-serif); line-height: 1.9; }
+
+/* ——— FOOTER ——— */
+footer {
+  padding: 80px 40px 40px;
+  background: var(--ink); color: var(--paper);
+  border-top: 4px double var(--gold-soft);
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand .en {
+  font-family: var(--serif); font-size: 48px; font-weight: 900;
+  font-variation-settings: "opsz" 144; letter-spacing: -0.03em;
+  line-height: 1;
+}
+.footer-brand .cn {
+  font-family: var(--cjk-serif); font-size: 20px;
+  letter-spacing: 0.15em; margin-top: 8px; opacity: 0.6;
+}
+.footer-brand p { margin-top: 20px; font-size: 13px; line-height: 1.7; opacity: 0.7; max-width: 340px; font-style: italic; }
+[data-lang="zh"] .footer-brand p { font-family: var(--cjk-serif); font-style: normal; }
+.footer-col h5 {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 18px; color: var(--gold-soft);
+}
+.footer-col a {
+  display: block; color: var(--paper); text-decoration: none;
+  font-size: 14px; padding: 4px 0; opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.footer-col a:hover { opacity: 1; color: var(--gold-soft); }
+.footer-bottom {
+  display: flex; justify-content: space-between;
+  padding-top: 24px; border-top: 1px solid rgba(242, 236, 220, 0.15);
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* Bilingual toggling */
+[data-lang="en"] .cn-only,
+[data-lang="en"] .lang-cn { display: none !important; }
+[data-lang="zh"] .en-only,
+[data-lang="zh"] .lang-en { display: none !important; }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
+  .entities { grid-template-columns: repeat(2, 1fr); }
+  .dim-intro { grid-template-columns: 1fr; gap: 32px; }
+  .section-head { grid-template-columns: 1fr; gap: 16px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .dim-chart { grid-template-columns: 120px 1fr 80px; gap: 12px; }
+  .methodology { grid-template-columns: 1fr; }
+  section { padding: 80px 24px; }
+  .topbar { padding: 14px 20px; }
+  .topbar nav { display: none; }
+}
+@media (max-width: 560px) {
+  .entities { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== TOP BAR ====== -->
+<header class="topbar">
+  <div class="brand">
+    <span class="glyph">A</span>
+    <span class="en">Global Atlas</span>
+    <span class="cn">寰宇图志</span>
+  </div>
+  <nav>
+    <a href="#entities"><span class="lang-en">Entities</span><span class="lang-cn">八大板块</span></a>
+    <a href="#dimensions"><span class="lang-en">Dimensions</span><span class="lang-cn">七维度</span></a>
+    <a href="#matrix"><span class="lang-en">Matrix</span><span class="lang-cn">对照表</span></a>
+    <a href="#method"><span class="lang-en">Method</span><span class="lang-cn">方法</span></a>
+  </nav>
+  <div class="lang-toggle" role="tablist">
+    <button data-set-lang="en" class="active">EN</button>
+    <button data-set-lang="zh">中文</button>
+  </div>
+</header>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="eyebrow">
+      <span class="lang-en">Edition 01 · April 2026</span>
+      <span class="lang-cn">第一辑 · 二〇二六年四月</span>
+    </div>
+    <h1>
+      <span class="lang-en">Eight<br>Worlds, <span class="emph">One</span><br>Atlas.</span>
+      <span class="lang-cn">八方<br>世界，<span class="emph">一</span>图<br>而观。</span>
+      <span class="cn-title lang-en">寰 宇 图 志</span>
+      <span class="cn-title lang-cn">GLOBAL · ATLAS</span>
+    </h1>
+    <p class="hero-lede">
+      <span class="lang-en">A bilingual comparative portrait of the United States, the European Union, China, ASEAN, Brazil, Russia, India, and Africa — measured across seven dimensions that shape how billions live, trade, govern, and imagine.</span>
+      <span class="lang-cn">一部双语对照的世界地理政治图谱。以美国、欧盟、中国、东盟、巴西、俄罗斯、印度、非洲为八大板块，沿经济、行政、政治、科技、生活、消费、购买力七条经线，展现数十亿人如何生活、贸易、治理与想象。</span>
+    </p>
+    <div class="hero-meta">
+      <div>
+        <span class="lang-en">Entities</span><span class="lang-cn">板块</span>
+        <b>08</b>
+      </div>
+      <div>
+        <span class="lang-en">Dimensions</span><span class="lang-cn">维度</span>
+        <b>07</b>
+      </div>
+      <div>
+        <span class="lang-en">Indicators</span><span class="lang-cn">指标</span>
+        <b>42</b>
+      </div>
+      <div>
+        <span class="lang-en">Population Covered</span><span class="lang-cn">所涵人口</span>
+        <b>~5.8B</b>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="compass" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <defs>
+          <radialGradient id="g1" cx="50%" cy="50%">
+            <stop offset="0%" stop-color="#f2ecdc"/>
+            <stop offset="100%" stop-color="#dcd0b2"/>
+          </radialGradient>
+        </defs>
+        <circle cx="200" cy="200" r="190" fill="url(#g1)" stroke="#0f1821" stroke-width="1.2"/>
+        <circle cx="200" cy="200" r="160" fill="none" stroke="#0f1821" stroke-width="0.5" stroke-dasharray="2 4"/>
+        <circle cx="200" cy="200" r="120" fill="none" stroke="#0f1821" stroke-width="0.5"/>
+        <circle cx="200" cy="200" r="70" fill="none" stroke="#0f1821" stroke-width="0.4" stroke-dasharray="1 3"/>
+        <!-- meridians -->
+        <g stroke="#0f1821" stroke-width="0.5" opacity="0.4">
+          <line x1="200" y1="10" x2="200" y2="390"/>
+          <line x1="10" y1="200" x2="390" y2="200"/>
+          <line x1="66" y1="66" x2="334" y2="334"/>
+          <line x1="334" y1="66" x2="66" y2="334"/>
+        </g>
+        <!-- 8 entity ticks -->
+        <g font-family="JetBrains Mono" font-size="10" fill="#0f1821" text-anchor="middle">
+          <text x="200" y="26">US · 美</text>
+          <text x="330" y="80">EU · 欧</text>
+          <text x="370" y="205">CN · 中</text>
+          <text x="330" y="328">IN · 印</text>
+          <text x="200" y="386">AS · 盟</text>
+          <text x="70" y="328">BR · 巴</text>
+          <text x="30" y="205">AF · 非</text>
+          <text x="70" y="80">RU · 俄</text>
+        </g>
+        <!-- petals -->
+        <g fill="none" stroke="#a8322c" stroke-width="1">
+          <path d="M 200 200 L 200 60 A 140 140 0 0 1 298 102 Z" fill="#a8322c" opacity="0.12"/>
+          <path d="M 200 200 L 298 102 A 140 140 0 0 1 340 200 Z" fill="#b5893c" opacity="0.15"/>
+          <path d="M 200 200 L 340 200 A 140 140 0 0 1 298 298 Z" fill="#4f5d43" opacity="0.18"/>
+          <path d="M 200 200 L 298 298 A 140 140 0 0 1 200 340 Z" fill="#3c5688" opacity="0.15"/>
+          <path d="M 200 200 L 200 340 A 140 140 0 0 1 102 298 Z" fill="#a8322c" opacity="0.08"/>
+          <path d="M 200 200 L 102 298 A 140 140 0 0 1 60 200 Z" fill="#b5893c" opacity="0.09"/>
+          <path d="M 200 200 L 60 200 A 140 140 0 0 1 102 102 Z" fill="#4f5d43" opacity="0.12"/>
+          <path d="M 200 200 L 102 102 A 140 140 0 0 1 200 60 Z" fill="#3c5688" opacity="0.11"/>
+        </g>
+        <!-- center -->
+        <circle cx="200" cy="200" r="6" fill="#a8322c"/>
+        <circle cx="200" cy="200" r="14" fill="none" stroke="#0f1821" stroke-width="0.5"/>
+        <text x="200" y="250" font-family="Fraunces" font-size="11" font-style="italic" fill="#0f1821" text-anchor="middle" opacity="0.6">orbis terrarum</text>
+      </svg>
+    </div>
+    <div class="compass-caption">
+      <span class="lang-en">Fig. 1 — The Comparative Wheel</span>
+      <span class="lang-cn">图 一 — 比较之轮</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ENTITIES ====== -->
+<section id="entities">
+  <div class="section-head">
+    <div class="section-num">§ 01</div>
+    <h2 class="section-title">
+      <span class="lang-en">The Eight Entities</span>
+      <span class="lang-cn">八大板块</span>
+      <span class="sub lang-en">八大板块 · Populations, Powers, Postures</span>
+      <span class="sub lang-cn">人口、权力、姿态</span>
+    </h2>
+    <div class="section-info">
+      <span class="lang-en">Approx. 2024–2025 figures</span>
+      <span class="lang-cn">约 2024–2025 数据</span>
+    </div>
+  </div>
+
+  <div class="entities">
+    <!-- US -->
+    <article class="entity" data-code="US">
+      <div>
+        <div class="entity-head">
+          <span class="entity-id">N° 01</span>
+          <span class="entity-flag">US</span>
+        </div>
+        <h3 class="entity-name">United States</h3>
+        <div class="entity-name-cn">美利坚合众国</div>
+      </div>
+      <div>
+        <div class="entity-stats">
+          <div><div class="stat-label lang-en">GDP (nominal)</div><div class="stat-label lang-cn">名义 GDP</div><div class="stat-val">$28.8T</div></div>
+          <div><div class="stat-label lang-en">Population</div><div class="stat-label lang-cn">人口</div><div class="stat-val">335M</div></div>
+          <div><div class="stat-label lang-en">GDP / Capita</div><div class="stat-label lang-cn">人均 GDP</div><div class="stat-val">$85.3K</div></div>
+          <div><div class="stat-label lang-en">Capital</div><div class="stat-label lang-cn">首都</div><div class="stat-val">D.C.</div></div>
+        </div>
+        <div class="entity-rule"></div>
+        <div class="entity-meta">
+          <span class="lang-en">Federal Republic</span><span class="lang-cn">联邦共和制</span>
+          <span>USD</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- EU -->
+    <article class="entity" data-code="EU">
+      <div>
+        <div class="entity-head">
+          <span class="entity-id">N° 02</span>
+          <span class="entity-flag">EU</span>
+        </div>
+        <h3 class="entity-name">European Union</h3>
+        <div class="entity-name-cn">欧洲联盟</div>
+      </div>
+      <div>
+        <div class="entity-stats">
+          <div><div class="stat-label lang-en">GDP (nominal)</div><div class="stat-label lang-cn">名义 GDP</div><div class="stat-val">$19.4T</div></div>
+          <div><div class="stat-label lang-en">Population</div><div class="stat-label lang-cn">人口</div><div class="stat-val">449M</div></div>
+          <div><div class="stat-label lang-en">GDP / Capita</div><div class="stat-label lang-cn">人均 GDP</div><div class="stat-val">$43.2K</div></div>
+          <div><div class="stat-label lang-en">Seat</div><div class="stat-label lang-cn">总部</div><div class="stat-val">Brussels</div></div>
+        </div>
+        <div class="entity-rule"></div>
+        <div class="entity-meta">
+          <span class="lang-en">Supranational Union</span><span class="lang-cn">超国家联合</span>
+          <span>EUR</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- CN -->
+    <article class="entity" data-code="CN">
+      <div>
+        <div class="entity-head">
+          <span class="entity-id">N° 03</span>
+          <span class="entity-flag">CN</span>
+        </div>
+        <h3 class="entity-name">China</h3>
+        <div class="entity-name-cn">中华人民共和国</div>
+      </div>
+      <div>
+        <div class="entity-stats">
+          <div><div class="stat-label lang-en">GDP (nominal)</div><div class="stat-label lang-cn">名义 GDP</div><div class="stat-val">$18.5T</div></div>
+          <div><div class="stat-label lang-en">Population</div><div class="stat-label lang-cn">人口</div><div class="stat-val">1.41B</div></div>
+          <div><div class="stat-label lang-en">GDP / Capita</div><div class="stat-label lang-cn">人均 GDP</div><div class="stat-val">$13.1K</div></div>
+          <div><div class="stat-label lang-en">Capital</div><div class="stat-label lang-cn">首都</div><div class="stat-val">Beijing</div></div>
+        </div>
+        <div class="entity-rule"></div>
+        <div class="entity-meta">
+          <span class="lang-en">Socialist State</span><span class="lang-cn">社会主义国家</span>
+          <span>CNY</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ASEAN -->
+    <article class="entity" data-code="ASEAN">
+      <div>
+        <div class="entity-head">
+          <span class="entity-id">N° 04</span>
+          <span class="entity-flag">AS</span>
+        </div>
+        <h3 class="entity-name">ASEAN</h3>
+        <div class="entity-name-cn">东南亚国家联盟</div>
+      </div>
+      <div>
+        <div class="entity-stats">
+          <div><div class="stat-label lang-en">GDP (nominal)</div><div class="stat-label lang-cn">名义 GDP</div><div class="stat-val">$3.9T</div></div>
+          <div><div class="stat-label lang-en">Population</div><div class="stat-label lang-cn">人口</div><div class="stat-val">685M</div></div>
+          <div><div class="stat-label lang-en">GDP / Capita</div><div class="stat-label lang-cn">人均 GDP</div><div class="stat-val">$5.7K</div></div>
+          <div><div class="stat-label lang-en">Secretariat</div><div class="stat-label lang-cn">秘书处</div><div class="stat-val">Jakarta</div></div>
+        </div>
+        <div class="entity-rule"></div>
+        <div class="entity-meta">
+          <span class="lang-en">Intergovernmental Bloc</span><span class="lang-cn">政府间组织</span>
+          <span>10 STATES</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- BR -->
+    <article class="entity" data-code="BR">
+      <div>
+        <div class="entity-head">
+          <span class="entity-id">N° 05</span>
+          <span class="entity-flag">BR</span>
+        </div>
+        <h3 class="entity-name">Brazil</h3>
+        <div class="entity-name-cn">巴西联邦共和国</div>
+      </div>
+      <div>
+        <div class="entity-stats">
+          <div><div class="stat-label lang-en">GDP (nominal)</div><div class="stat-label lang-cn">名义 GDP</div><div class="stat-val">$2.3T</div></div>
+          <div><div class="stat-label lang-en">Population</div><div class="stat-label lang-cn">人口</div><div class="stat-val">216M</div></div>
+          <div><div class="stat-label lang-en">GDP / Capita</div><div class="stat-label lang-cn">人均 GDP</div><div class="stat-val">$10.6K</div></div>
+          <div><div class="stat-label lang-en">Capital</div><div class="stat-label lang-cn">首都</div><div class="stat-val">Brasília</div></div>
+        </div>
+        <div class="entity-rule"></div>
+        <div class="entity-meta">
+          <span class="lang-en">Presidential Republic</span><span class="lang-cn">总统共和制</span>
+          <span>BRL</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- RU -->
+    <article class="entity" data-code="RU">
+      <div>
+        <div class="entity-head">
+          <span class="entity-id">N° 06</span>
+          <span class="entity-flag">RU</span>
+        </div>
+        <h3 class="entity-name">Russia</h3>
+        <div class="entity-name-cn">俄罗斯联邦</div>
+      </div>
+      <div>
+        <div class="entity-stats">
+          <div><div class="stat-label lang-en">GDP (nominal)</div><div class="stat-label lang-cn">名义 GDP</div><div class="stat-val">$2.2T</div></div>
+          <div><div class="stat-label lang-en">Population</div><div class="stat-label lang-cn">人口</div><div class="stat-val">144M</div></div>
+          <div><div class="stat-label lang-en">GDP / Capita</div><div class="stat-label lang-cn">人均 GDP</div><div class="stat-val">$15.3K</div></div>
+          <div><div class="stat-label lang-en">Capital</div><div class="stat-label lang-cn">首都</div><div class="stat-val">Moscow</div></div>
+        </div>
+        <div class="entity-rule"></div>
+        <div class="entity-meta">
+          <span class="lang-en">Federal Semi-Presidential</span><span class="lang-cn">联邦半总统制</span>
+          <span>RUB</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- IN -->
+    <article class="entity" data-code="IN">
+      <div>
+        <div class="entity-head">
+          <span class="entity-id">N° 07</span>
+          <span class="entity-flag">IN</span>
+        </div>
+        <h3 class="entity-name">India</h3>
+        <div class="entity-name-cn">印度共和国</div>
+      </div>
+      <div>
+        <div class="entity-stats">
+          <div><div class="stat-label lang-en">GDP (nominal)</div><div class="stat-label lang-cn">名义 GDP</div><div class="stat-val">$3.9T</div></div>
+          <div><div class="stat-label lang-en">Population</div><div class="stat-label lang-cn">人口</div><div class="stat-val">1.43B</div></div>
+          <div><div class="stat-label lang-en">GDP / Capita</div><div class="stat-label lang-cn">人均 GDP</div><div class="stat-val">$2.7K</div></div>
+          <div><div class="stat-label lang-en">Capital</div><div class="stat-label lang-cn">首都</div><div class="stat-val">New Delhi</div></div>
+        </div>
+        <div class="entity-rule"></div>
+        <div class="entity-meta">
+          <span class="lang-en">Federal Parliamentary</span><span class="lang-cn">联邦议会制</span>
+          <span>INR</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- AF -->
+    <article class="entity" data-code="AF">
+      <div>
+        <div class="entity-head">
+          <span class="entity-id">N° 08</span>
+          <span class="entity-flag">AF</span>
+        </div>
+        <h3 class="entity-name">Africa</h3>
+        <div class="entity-name-cn">非洲大陆</div>
+      </div>
+      <div>
+        <div class="entity-stats">
+          <div><div class="stat-label lang-en">GDP (nominal)</div><div class="stat-label lang-cn">名义 GDP</div><div class="stat-val">$3.0T</div></div>
+          <div><div class="stat-label lang-en">Population</div><div class="stat-label lang-cn">人口</div><div class="stat-val">1.40B</div></div>
+          <div><div class="stat-label lang-en">GDP / Capita</div><div class="stat-label lang-cn">人均 GDP</div><div class="stat-val">$2.1K</div></div>
+          <div><div class="stat-label lang-en">AU Seat</div><div class="stat-label lang-cn">非盟总部</div><div class="stat-val">Addis A.</div></div>
+        </div>
+        <div class="entity-rule"></div>
+        <div class="entity-meta">
+          <span class="lang-en">Continent · 54 States</span><span class="lang-cn">大陆 · 五十四国</span>
+          <span>AU</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ====== PULLQUOTE ====== -->
+<section class="pullquote">
+  <q class="lang-en">To compare is not to equate. Each entity is a civilisation-unit of its own scale, with its own ledger of wealth, its own grammar of power, and its own appetite for the future.</q>
+  <q class="lang-cn">比较并非等同。每一板块皆自成一文明量级，各有一本财富账簿、一套权力语法、一腔对未来的胃口。</q>
+  <cite>
+    <span class="lang-en">— Editorial Note · 编者按</span>
+    <span class="lang-cn">— 编者按</span>
+  </cite>
+</section>
+
+<!-- ====== DIMENSIONS ====== -->
+<section id="dimensions" class="dimensions-section">
+  <div class="section-head">
+    <div class="section-num">§ 02</div>
+    <h2 class="section-title">
+      <span class="lang-en">Seven Dimensions</span>
+      <span class="lang-cn">七个维度</span>
+      <span class="sub lang-en">七个维度 · Select any axis</span>
+      <span class="sub lang-cn">任择一轴，俯瞰全图</span>
+    </h2>
+    <div class="section-info">
+      <span class="lang-en">Indexed · 0–100 scale</span>
+      <span class="lang-cn">指数化 · 0–100 量表</span>
+    </div>
+  </div>
+
+  <div class="dim-tabs" role="tablist">
+    <button class="dim-tab active" data-dim="economy">
+      <span class="num">01</span>
+      <span class="lang-en">Economy</span><span class="lang-cn">经济</span>
+      <span class="label-cn lang-en">经济</span>
+      <span class="label-cn lang-cn">Economy</span>
+    </button>
+    <button class="dim-tab" data-dim="administration">
+      <span class="num">02</span>
+      <span class="lang-en">Administration</span><span class="lang-cn">行政</span>
+      <span class="label-cn lang-en">行政</span>
+      <span class="label-cn lang-cn">Administration</span>
+    </button>
+    <button class="dim-tab" data-dim="politics">
+      <span class="num">03</span>
+      <span class="lang-en">Politics</span><span class="lang-cn">政治</span>
+      <span class="label-cn lang-en">政治</span>
+      <span class="label-cn lang-cn">Politics</span>
+    </button>
+    <button class="dim-tab" data-dim="technology">
+      <span class="num">04</span>
+      <span class="lang-en">Technology</span><span class="lang-cn">科技</span>
+      <span class="label-cn lang-en">科技</span>
+      <span class="label-cn lang-cn">Technology</span>
+    </button>
+    <button class="dim-tab" data-dim="lifestyle">
+      <span class="num">05</span>
+      <span class="lang-en">Lifestyle</span><span class="lang-cn">生活</span>
+      <span class="label-cn lang-en">生活</span>
+      <span class="label-cn lang-cn">Lifestyle</span>
+    </button>
+    <button class="dim-tab" data-dim="consumption">
+      <span class="num">06</span>
+      <span class="lang-en">Consumption</span><span class="lang-cn">消费</span>
+      <span class="label-cn lang-en">消费</span>
+      <span class="label-cn lang-cn">Consumption</span>
+    </button>
+    <button class="dim-tab" data-dim="purchasing">
+      <span class="num">07</span>
+      <span class="lang-en">Purchasing Power</span><span class="lang-cn">购买力</span>
+      <span class="label-cn lang-en">购买力</span>
+      <span class="label-cn lang-cn">Purchasing Power</span>
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div id="dim-panels"></div>
+</section>
+
+<!-- ====== MATRIX ====== -->
+<section id="matrix">
+  <div class="section-head">
+    <div class="section-num">§ 03</div>
+    <h2 class="section-title">
+      <span class="lang-en">The Comparative Matrix</span>
+      <span class="lang-cn">对照矩阵</span>
+      <span class="sub lang-en">比较矩阵 · At a Glance</span>
+      <span class="sub lang-cn">一眼看尽</span>
+    </h2>
+    <div class="section-info">
+      <span class="lang-en">Scroll horizontally ↔</span>
+      <span class="lang-cn">可横向滚动 ↔</span>
+    </div>
+  </div>
+
+  <div class="matrix">
+    <table>
+      <thead>
+        <tr>
+          <th><span class="lang-en">Indicator</span><span class="lang-cn">指标</span><span class="th-cn lang-en">指标</span><span class="th-cn lang-cn">Indicator</span></th>
+          <th>US<span class="th-cn">美</span></th>
+          <th>EU<span class="th-cn">欧</span></th>
+          <th>CN<span class="th-cn">中</span></th>
+          <th>ASEAN<span class="th-cn">盟</span></th>
+          <th>BR<span class="th-cn">巴</span></th>
+          <th>RU<span class="th-cn">俄</span></th>
+          <th>IN<span class="th-cn">印</span></th>
+          <th>AF<span class="th-cn">非</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="lang-en">GDP (nominal, USD tn)</span><span class="lang-cn">名义 GDP（万亿美元）</span><span class="cn lang-en">名义 GDP</span><span class="cn lang-cn">Nominal GDP</span></td>
+          <td>28.8</td><td>19.4</td><td>18.5</td><td>3.9</td><td>2.3</td><td>2.2</td><td>3.9</td><td>3.0</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">GDP (PPP, USD tn)</span><span class="lang-cn">购买力平价 GDP</span><span class="cn lang-en">按购买力平价</span><span class="cn lang-cn">By PPP</span></td>
+          <td>28.8</td><td>28.3</td><td>35.0</td><td>11.3</td><td>4.5</td><td>6.5</td><td>14.5</td><td>9.4</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Population (millions)</span><span class="lang-cn">人口（百万）</span><span class="cn lang-en">人口</span><span class="cn lang-cn">Population</span></td>
+          <td>335</td><td>449</td><td>1,410</td><td>685</td><td>216</td><td>144</td><td>1,430</td><td>1,400</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Median Age</span><span class="lang-cn">年龄中位数</span><span class="cn lang-en">年龄中位数</span><span class="cn lang-cn">Median Age</span></td>
+          <td>38.9</td><td>44.4</td><td>39.8</td><td>30.3</td><td>33.5</td><td>40.3</td><td>28.8</td><td>19.7</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Urbanisation (%)</span><span class="lang-cn">城镇化率（%）</span><span class="cn lang-en">城镇化</span><span class="cn lang-cn">Urbanisation</span></td>
+          <td>83%</td><td>75%</td><td>65%</td><td>50%</td><td>87%</td><td>75%</td><td>36%</td><td>44%</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">R&D / GDP (%)</span><span class="lang-cn">研发 / GDP（%）</span><span class="cn lang-en">研发投入</span><span class="cn lang-cn">R&D</span></td>
+          <td>3.4%</td><td>2.2%</td><td>2.6%</td><td>1.1%</td><td>1.2%</td><td>1.0%</td><td>0.7%</td><td>0.6%</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Internet Users (%)</span><span class="lang-cn">互联网普及率</span><span class="cn lang-en">互联网</span><span class="cn lang-cn">Internet</span></td>
+          <td>92%</td><td>89%</td><td>77%</td><td>73%</td><td>84%</td><td>88%</td><td>55%</td><td>43%</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Big Mac Index (USD)</span><span class="lang-cn">巨无霸指数</span><span class="cn lang-en">巨无霸</span><span class="cn lang-cn">Big Mac</span></td>
+          <td>$5.69</td><td>$5.29</td><td>$3.50</td><td>$3.20</td><td>$4.40</td><td>$2.00</td><td>$2.55</td><td>$2.80</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Avg. Work Hours / Week</span><span class="lang-cn">周均工时</span><span class="cn lang-en">工时</span><span class="cn lang-cn">Work Hours</span></td>
+          <td>36.4</td><td>35.9</td><td>46.1</td><td>42.5</td><td>39.6</td><td>38.0</td><td>47.8</td><td>40.5</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Life Expectancy (yrs)</span><span class="lang-cn">预期寿命（岁）</span><span class="cn lang-en">预期寿命</span><span class="cn lang-cn">Life Exp.</span></td>
+          <td>78.4</td><td>81.3</td><td>78.2</td><td>72.1</td><td>75.9</td><td>72.8</td><td>70.8</td><td>63.8</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====== METHODOLOGY ====== -->
+<section id="method">
+  <div class="section-head">
+    <div class="section-num">§ 04</div>
+    <h2 class="section-title">
+      <span class="lang-en">A Note on Method</span>
+      <span class="lang-cn">方法小记</span>
+      <span class="sub lang-en">方法小记</span>
+      <span class="sub lang-cn">A Note on Method</span>
+    </h2>
+    <div class="section-info">
+      <span class="lang-en">Version 1.0 · 2026</span>
+      <span class="lang-cn">第一版 · 二〇二六</span>
+    </div>
+  </div>
+
+  <div class="methodology">
+    <div class="method-card">
+      <div class="num">01 / NORMALISATION</div>
+      <h4>
+        <span class="lang-en">Indexed to 100</span>
+        <span class="lang-cn">归一为百</span>
+        <span class="cn lang-en">归一为百</span>
+        <span class="cn lang-cn">Indexed to 100</span>
+      </h4>
+      <p>
+        <span class="lang-en">Each dimension is aggregated from 4–7 sub-indicators, min–max normalised to a 0–100 scale. The leading entity on each axis does not necessarily score 100 — the ceiling reflects a theoretical maximum, not the current frontier.</span>
+        <span class="lang-cn">每一维度由 4–7 个子指标加权汇总，按最大最小法归一为 0–100。各轴最高者未必得满分 — 顶值代表理论上限，而非当前领先水平。</span>
+      </p>
+    </div>
+    <div class="method-card">
+      <div class="num">02 / UNITS OF ANALYSIS</div>
+      <h4>
+        <span class="lang-en">Asymmetric by Design</span>
+        <span class="lang-cn">不对称乃本意</span>
+        <span class="cn lang-en">不对称乃本意</span>
+        <span class="cn lang-cn">Asymmetric by Design</span>
+      </h4>
+      <p>
+        <span class="lang-en">The eight entities are not commensurable in kind. A federal state (US), a supranational union (EU), a civilisation-state (CN), a bloc (ASEAN) and a continent (Africa) all appear side by side. Readers should treat each card as a portrait, not a ranking.</span>
+        <span class="lang-cn">八大板块在类别上并不同构。联邦国家（美）、超国家联合（欧）、文明国家（中）、国家集团（东盟）与整片大陆（非洲）并列呈现。读者宜将每一版视作肖像，而非名次。</span>
+      </p>
+    </div>
+    <div class="method-card">
+      <div class="num">03 / SOURCES</div>
+      <h4>
+        <span class="lang-en">Where the Numbers Come From</span>
+        <span class="lang-cn">数据来源</span>
+        <span class="cn lang-en">数据来源</span>
+        <span class="cn lang-cn">Where the Numbers Come From</span>
+      </h4>
+      <p>
+        <span class="lang-en">Headline figures draw on IMF WEO, World Bank, UN DESA, OECD, WIPO, Freedom House, V-Dem, and national statistical offices. Figures are approximate and rounded; this atlas is for orientation, not policy.</span>
+        <span class="lang-cn">主要数据引自国际货币基金组织、世界银行、联合国经社部、经合组织、世界知识产权组织、自由之家、V-Dem 及各国统计机构。数据皆为近似且经四舍五入，本图志仅供导览，不作政策依据。</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="en">Global Atlas</div>
+      <div class="cn">寰 宇 图 志</div>
+      <p>
+        <span class="lang-en">A bilingual editorial project — mapping how eight great units of humanity live, govern, and grow. Published in the spirit of understanding, not ranking.</span>
+        <span class="lang-cn">一部双语编辑专案，描绘人类八大基本单元如何生活、治理与成长。出版于求解之心，非排名之念。</span>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h5>
+        <span class="lang-en">Contents</span>
+        <span class="lang-cn">目录</span>
+      </h5>
+      <a href="#entities"><span class="lang-en">§ 01 Entities</span><span class="lang-cn">§ 一 板块</span></a>
+      <a href="#dimensions"><span class="lang-en">§ 02 Dimensions</span><span class="lang-cn">§ 二 维度</span></a>
+      <a href="#matrix"><span class="lang-en">§ 03 Matrix</span><span class="lang-cn">§ 三 矩阵</span></a>
+      <a href="#method"><span class="lang-en">§ 04 Method</span><span class="lang-cn">§ 四 方法</span></a>
+    </div>
+    <div class="footer-col">
+      <h5>
+        <span class="lang-en">Dimensions</span>
+        <span class="lang-cn">维度</span>
+      </h5>
+      <a href="#dimensions"><span class="lang-en">Economy</span><span class="lang-cn">经济</span></a>
+      <a href="#dimensions"><span class="lang-en">Administration</span><span class="lang-cn">行政</span></a>
+      <a href="#dimensions"><span class="lang-en">Politics</span><span class="lang-cn">政治</span></a>
+      <a href="#dimensions"><span class="lang-en">Technology</span><span class="lang-cn">科技</span></a>
+      <a href="#dimensions"><span class="lang-en">Lifestyle</span><span class="lang-cn">生活</span></a>
+      <a href="#dimensions"><span class="lang-en">Consumption</span><span class="lang-cn">消费</span></a>
+      <a href="#dimensions"><span class="lang-en">Purchasing Power</span><span class="lang-cn">购买力</span></a>
+    </div>
+    <div class="footer-col">
+      <h5>
+        <span class="lang-en">Colophon</span>
+        <span class="lang-cn">版权页</span>
+      </h5>
+      <a href="#"><span class="lang-en">Sources & Methods</span><span class="lang-cn">来源与方法</span></a>
+      <a href="#"><span class="lang-en">Changelog</span><span class="lang-cn">更动记录</span></a>
+      <a href="#"><span class="lang-en">Contact Editors</span><span class="lang-cn">联络编者</span></a>
+      <a href="#"><span class="lang-en">Licensing</span><span class="lang-cn">许可</span></a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>
+      <span class="lang-en">© 2026 Global Atlas · Edition 01</span>
+      <span class="lang-cn">© 二〇二六 寰宇图志 · 第一辑</span>
+    </span>
+    <span>
+      <span class="lang-en">Set in Fraunces & Noto Serif SC</span>
+      <span class="lang-cn">字体 Fraunces 与思源宋体</span>
+    </span>
+  </div>
+</footer>
+
+<script>
+/* ——————————————————————————————————————
+   Data
+—————————————————————————————————————— */
+const dimData = {
+  economy: {
+    titleEn: "Economy, in gold and ledgers.",
+    titleZh: "经济：金银与账簿之间。",
+    descEn: "A composite of nominal GDP, GDP at purchasing-power parity, share of global exports, foreign direct investment, and financial depth. The headline number is size; the subtler story is structure.",
+    descZh: "由名义 GDP、购买力平价 GDP、全球出口份额、外商直接投资与金融深度综合而成。表层是规模，里层是结构。",
+    entries: [
+      { name: "United States", cn: "美国", code: "US", value: 96, raw: "GDP $28.8T · 15% of global trade" },
+      { name: "European Union", cn: "欧盟", code: "EU", value: 88, raw: "GDP $19.4T · 15% of global trade" },
+      { name: "China", cn: "中国", code: "CN", value: 92, raw: "GDP $18.5T · 14% of global trade" },
+      { name: "India", cn: "印度", code: "IN", value: 58, raw: "GDP $3.9T · fastest major growth" },
+      { name: "ASEAN", cn: "东盟", code: "ASEAN", value: 54, raw: "GDP $3.9T · 7% of global trade" },
+      { name: "Africa", cn: "非洲", code: "AF", value: 32, raw: "GDP $3.0T · 2.9% of global trade" },
+      { name: "Brazil", cn: "巴西", code: "BR", value: 38, raw: "GDP $2.3T · commodity-heavy" },
+      { name: "Russia", cn: "俄罗斯", code: "RU", value: 34, raw: "GDP $2.2T · resource economy" },
+    ]
+  },
+  administration: {
+    titleEn: "Administration, the machinery of the state.",
+    titleZh: "行政：国家之机械齿轮。",
+    descEn: "How efficiently does the state do what states do? Measured via government effectiveness indices, regulatory quality, rule of law, and digital public services — indexed 0–100.",
+    descZh: "国家机器运转得如何？以政府效能、监管质量、法治、数字政务四项指数综合，归一为 0–100。",
+    entries: [
+      { name: "European Union", cn: "欧盟", code: "EU", value: 86, raw: "High rule-of-law, layered governance" },
+      { name: "United States", cn: "美国", code: "US", value: 79, raw: "Federal plurality, institutional depth" },
+      { name: "China", cn: "中国", code: "CN", value: 72, raw: "High state capacity, centralised" },
+      { name: "ASEAN", cn: "东盟", code: "ASEAN", value: 58, raw: "Variable across member states" },
+      { name: "Russia", cn: "俄罗斯", code: "RU", value: 46, raw: "Strong vertical, weak institutions" },
+      { name: "Brazil", cn: "巴西", code: "BR", value: 48, raw: "Robust federalism, bureaucracy heavy" },
+      { name: "India", cn: "印度", code: "IN", value: 52, raw: "Largest democracy, paper-heavy" },
+      { name: "Africa", cn: "非洲", code: "AF", value: 34, raw: "Highly variable across 54 states" },
+    ]
+  },
+  politics: {
+    titleEn: "Politics, the contest of legitimacy.",
+    titleZh: "政治：正当性之较量。",
+    descEn: "This axis blends regime type, political rights, civil liberties, electoral integrity, and geopolitical influence. It is as much about the texture of citizenship as about global weight.",
+    descZh: "此轴综合政体类型、政治权利、公民自由、选举廉正与地缘影响力。既关乎公民感受之肌理，亦关乎全球分量。",
+    entries: [
+      { name: "European Union", cn: "欧盟", code: "EU", value: 88, raw: "Liberal-democratic consensus" },
+      { name: "United States", cn: "美国", code: "US", value: 82, raw: "Polarised but institutionally rich" },
+      { name: "India", cn: "印度", code: "IN", value: 62, raw: "Electoral scale unmatched" },
+      { name: "Brazil", cn: "巴西", code: "BR", value: 60, raw: "Vigorous multi-party system" },
+      { name: "ASEAN", cn: "东盟", code: "ASEAN", value: 48, raw: "Spans democracies & autocracies" },
+      { name: "China", cn: "中国", code: "CN", value: 56, raw: "Party-state, high mobilisation" },
+      { name: "Africa", cn: "非洲", code: "AF", value: 42, raw: "Mixed: democracies, juntas, hybrids" },
+      { name: "Russia", cn: "俄罗斯", code: "RU", value: 38, raw: "Concentrated executive power" },
+    ]
+  },
+  technology: {
+    titleEn: "Technology, who makes the future.",
+    titleZh: "科技：未来由谁铸造。",
+    descEn: "R&D intensity, patent filings, unicorn count, semiconductor capacity, AI model output, and internet infrastructure. A contest of frontier, scale, and diffusion.",
+    descZh: "研发投入、专利数量、独角兽规模、半导体能力、人工智能模型、互联网基础设施。前沿、规模与扩散三者之角力。",
+    entries: [
+      { name: "United States", cn: "美国", code: "US", value: 98, raw: "Frontier labs, chip design, capital" },
+      { name: "China", cn: "中国", code: "CN", value: 90, raw: "Scale, hardware, rising models" },
+      { name: "European Union", cn: "欧盟", code: "EU", value: 72, raw: "Strong science, scaling gap" },
+      { name: "India", cn: "印度", code: "IN", value: 58, raw: "Services giant, rising DPI" },
+      { name: "ASEAN", cn: "东盟", code: "ASEAN", value: 54, raw: "Assembly & rising SG/VN stacks" },
+      { name: "Russia", cn: "俄罗斯", code: "RU", value: 42, raw: "Strong maths, constrained exports" },
+      { name: "Brazil", cn: "巴西", code: "BR", value: 40, raw: "Fintech standout, R&D light" },
+      { name: "Africa", cn: "非洲", code: "AF", value: 28, raw: "Mobile-first leapfrog, thin R&D" },
+    ]
+  },
+  lifestyle: {
+    titleEn: "Lifestyle, the daily fabric.",
+    titleZh: "生活：日常之织理。",
+    descEn: "Life expectancy, work-hours, vacation days, housing affordability, pollution exposure, leisure and culture. Not wealth, but what wealth buys in hours and health.",
+    descZh: "预期寿命、工时、假期、住房可及、空气质量、文化闲暇。不是财富多寡，而是财富能换来几许时间与健康。",
+    entries: [
+      { name: "European Union", cn: "欧盟", code: "EU", value: 90, raw: "Long holidays, strong healthcare" },
+      { name: "United States", cn: "美国", code: "US", value: 72, raw: "Wealth high, work hours long" },
+      { name: "China", cn: "中国", code: "CN", value: 62, raw: "Rising comforts, intense work" },
+      { name: "ASEAN", cn: "东盟", code: "ASEAN", value: 56, raw: "Wide divergence; strong cuisine" },
+      { name: "Brazil", cn: "巴西", code: "BR", value: 58, raw: "Rich culture, safety gaps" },
+      { name: "Russia", cn: "俄罗斯", code: "RU", value: 54, raw: "Long winters, strong welfare" },
+      { name: "India", cn: "印度", code: "IN", value: 48, raw: "Colourful culture, stretched services" },
+      { name: "Africa", cn: "非洲", code: "AF", value: 40, raw: "Young, vibrant, infrastructure-lean" },
+    ]
+  },
+  consumption: {
+    titleEn: "Consumption, the engine of appetite.",
+    titleZh: "消费：胃口之引擎。",
+    descEn: "Household consumption value, retail sales, e-commerce penetration, discretionary spending, and brand density. The shape of how people turn money into things, meals, journeys, and dreams.",
+    descZh: "居民消费总量、零售额、电商渗透率、可支配支出、品牌密度。衡量人们如何将货币转化为物件、餐食、旅行与梦想。",
+    entries: [
+      { name: "United States", cn: "美国", code: "US", value: 96, raw: "$18T consumer economy" },
+      { name: "European Union", cn: "欧盟", code: "EU", value: 82, raw: "Deep, refined consumption" },
+      { name: "China", cn: "中国", code: "CN", value: 80, raw: "Largest e-commerce market" },
+      { name: "India", cn: "印度", code: "IN", value: 54, raw: "Fast-growing middle class" },
+      { name: "ASEAN", cn: "东盟", code: "ASEAN", value: 52, raw: "Mobile-first consumers" },
+      { name: "Brazil", cn: "巴西", code: "BR", value: 50, raw: "Large domestic market" },
+      { name: "Russia", cn: "俄罗斯", code: "RU", value: 42, raw: "Contracting under sanctions" },
+      { name: "Africa", cn: "非洲", code: "AF", value: 34, raw: "Emerging, informal-heavy retail" },
+    ]
+  },
+  purchasing: {
+    titleEn: "Purchasing power, what a dollar buys.",
+    titleZh: "购买力：一美元能换得几何。",
+    descEn: "Purchasing-power parity GDP per capita, local cost-of-living, Big Mac / Espresso indices, and housing-to-income ratios. The most honest gauge of lived wealth.",
+    descZh: "人均 PPP、本地生活成本、巨无霸与浓缩咖啡指数、房价收入比。衡量实际生活富裕程度之最诚实的尺度。",
+    entries: [
+      { name: "United States", cn: "美国", code: "US", value: 96, raw: "$85K PPP per capita" },
+      { name: "European Union", cn: "欧盟", code: "EU", value: 82, raw: "$60K PPP per capita" },
+      { name: "Russia", cn: "俄罗斯", code: "RU", value: 62, raw: "$44K PPP per capita" },
+      { name: "China", cn: "中国", code: "CN", value: 58, raw: "$25K PPP per capita" },
+      { name: "Brazil", cn: "巴西", code: "BR", value: 50, raw: "$21K PPP per capita" },
+      { name: "ASEAN", cn: "东盟", code: "ASEAN", value: 44, raw: "$16K PPP per capita" },
+      { name: "India", cn: "印度", code: "IN", value: 36, raw: "$10K PPP per capita" },
+      { name: "Africa", cn: "非洲", code: "AF", value: 28, raw: "$6.7K PPP per capita" },
+    ]
+  }
+};
+
+const colorMap = {
+  US: "#3c5688", EU: "#1b3a7a", CN: "#a8322c", ASEAN: "#2a7a5c",
+  BR: "#1c8651", RU: "#b7413b", IN: "#d69242", AF: "#b5893c"
+};
+
+/* Render dim panels */
+function renderPanels() {
+  const wrap = document.getElementById('dim-panels');
+  wrap.innerHTML = '';
+  Object.entries(dimData).forEach(([key, d], i) => {
+    const panel = document.createElement('div');
+    panel.className = 'dim-panel' + (i === 0 ? ' active' : '');
+    panel.dataset.dim = key;
+    panel.innerHTML = `
+      <div class="dim-intro">
+        <h3 class="lang-en">${d.titleEn}</h3>
+        <h3 class="lang-cn">${d.titleZh}</h3>
+        <div>
+          <p class="lang-en">${d.descEn}</p>
+          <p class="lang-cn">${d.descZh}</p>
+        </div>
+      </div>
+      <div class="dim-bars">
+        ${d.entries.map(e => `
+          <div class="dim-chart" style="--accent:${colorMap[e.code]}">
+            <div class="dim-chart-name">
+              <span class="dot"></span>
+              <span class="lang-en">${e.name}</span>
+              <span class="lang-cn">${e.cn}</span>
+            </div>
+            <div class="dim-chart-bar">
+              <div class="dim-chart-bar-fill" data-w="${e.value}" style="width:0%"></div>
+            </div>
+            <div class="dim-chart-value">${e.value} · ${e.raw.split('·')[0].trim()}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    wrap.appendChild(panel);
+  });
+}
+renderPanels();
+
+/* Tab handling */
+const tabs = document.querySelectorAll('.dim-tab');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const dim = tab.dataset.dim;
+    tabs.forEach(t => t.classList.toggle('active', t === tab));
+    document.querySelectorAll('.dim-panel').forEach(p => {
+      p.classList.toggle('active', p.dataset.dim === dim);
+    });
+    // animate bars
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.dim-panel.active .dim-chart-bar-fill').forEach(b => {
+        b.style.width = b.dataset.w + '%';
+      });
+    });
+  });
+});
+
+/* Initial bars animate on load (observer for first panel) */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.dim-panel.active .dim-chart-bar-fill').forEach(b => {
+        b.style.width = b.dataset.w + '%';
+      });
+      io.disconnect();
+    }
+  });
+}, { threshold: 0.15 });
+io.observe(document.querySelector('#dimensions'));
+
+/* Entity cursor glow */
+document.querySelectorAll('.entity').forEach(el => {
+  el.addEventListener('mousemove', (e) => {
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--x', ((e.clientX - r.left) / r.width * 100) + '%');
+    el.style.setProperty('--y', ((e.clientY - r.top) / r.height * 100) + '%');
+  });
+});
+
+/* Language toggle */
+document.querySelectorAll('[data-set-lang]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.setLang;
+    document.documentElement.dataset.lang = lang;
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.querySelectorAll('[data-set-lang]').forEach(b => {
+      b.classList.toggle('active', b === btn);
+    });
+  });
+});
+</script>
+</body>
+</html>
