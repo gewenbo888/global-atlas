@@ -2,7 +2,7 @@
 
 Bilingual comparative atlas of eight world entities across seven dimensions.
 
-[![Live Demo](https://img.shields.io/badge/demo-global--atlas.vercel.app-8b1a1a)](https://global-atlas.vercel.app)
+[![Live Demo](https://img.shields.io/badge/demo-global--atlas.vercel.app-8b1a1a)](https://global-atlas-lake.vercel.app)
 
 ## Overview
 
@@ -40,5 +40,5 @@ A comparative matrix of 10 core indicators lets readers scan every entity at onc
 
 ## Links
 
-- [Live Site](https://global-atlas.vercel.app)
+- [Live Site](https://global-atlas-lake.vercel.app)
 - [GitHub Repository](https://github.com/gewenbo888/global-atlas)
